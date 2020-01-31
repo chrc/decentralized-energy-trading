@@ -44,17 +44,19 @@ const config = {
   meterReadingCollection: serverConfig.meterReadingCollection
 };
 
-// Set up the DB
-db.createDB(config.dbUrl, config.dbName, [
-  config.sensorDataCollection,
-  config.utilityDataCollection,
-  config.meterReadingCollection
-])
-.then(() => {
-  return db.initializeMeterReading(config.dbUrl, config.dbName, config.sensorDataCollection, config.meterReadingCollection)
-}).catch(err => {
-  console.log("Error while creating DB", err);
-});
+if (config.dbUrl) {
+  // Set up the DB
+  db.createDB(config.dbUrl, config.dbName, [
+    config.sensorDataCollection,
+    config.utilityDataCollection,
+    config.meterReadingCollection
+  ])
+  .then(() => {
+    return db.initializeMeterReading(config.dbUrl, config.dbName, config.sensorDataCollection, config.meterReadingCollection)
+  }).catch(err => {
+    console.log("Error while creating DB", err);
+  });
+}
 
 let web3;
 let utilityContract;
@@ -126,6 +128,7 @@ app.use(cors());
  */
 app.get("/sensor-stats", async (req, res) => {
   try {
+    if (!config.dbUrl) throw new Error("Database is disabled for this Household");
     const { from, to } = req.query;
     const fromQuery = from ? { timestamp: { $gte: parseInt(from) } } : {};
     const toQuery = to ? { timestamp: { $lte: parseInt(to) } } : {};
@@ -153,6 +156,7 @@ app.get("/sensor-stats", async (req, res) => {
  */
 app.get("/transfers", async (req, res) => {
   try {
+    if (!config.dbUrl) throw new Error("Database is disabled for this Household");
     const { from, to } = req.query;
     const fromQuery = from ? { timestamp: { $gte: parseInt(from) } } : {};
     const toQuery = to ? { timestamp: { $lte: parseInt(to) } } : {};
@@ -180,6 +184,7 @@ app.get("/transfers", async (req, res) => {
  */
 app.get("/household-stats", async (req, res, next) => {
   try {
+    if (!config.dbUrl) throw new Error("Database is disabled for this Household");
     const data = await db.getMeterReading(config.dbUrl, config.dbName, config.meterReadingCollection);
     data.address = config.address;
     res.setHeader("Content-Type", "application/json");
@@ -227,18 +232,20 @@ app.put("/sensor-stats", async (req, res) => {
       meterDelta
     );
 
-    await db.writeToDB(
-      config.dbUrl,
-      config.dbName,
-      config.sensorDataCollection,
-      {
-        produce,
-        consume
-      }
-    )
-    .then(res => {
-      db.updateMeterReading(config.dbUrl, config.dbName, config.meterReadingCollection, res)
-    })
+    if (config.dbUrl) {
+      await db.writeToDB(
+        config.dbUrl,
+        config.dbName,
+        config.sensorDataCollection,
+        {
+          produce,
+          consume
+        }
+      )
+      .then(res => {
+        db.updateMeterReading(config.dbUrl, config.dbName, config.meterReadingCollection, res)
+      })
+    }
 
     res.status(200);
     res.send();
