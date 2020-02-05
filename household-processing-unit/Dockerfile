@@ -9,30 +9,30 @@ RUN apt -y install nodejs npm
 RUN npm install yarn -g
 RUN apt -y install git
 
-RUN mkdir /household_procesing_unit
-WORKDIR /household_procesing_unit
+RUN mkdir /household_processing_unit
+WORKDIR /household_processing_unit
+
+COPY scripts/install_parity.sh ./
+RUN ./install_parity.sh
 
 COPY contracts ./contracts
 COPY helpers ./helpers
 COPY household-server ./household-server
+
+COPY package.json truffle-config.js yarn.lock ./
+
+RUN yarn install --network-concurrency 1
+
 COPY household-ui ./household-ui
 COPY migrations ./migrations
+WORKDIR /household_processing_unit/household-ui
+RUN yarn install --network-concurrency 1
 
-COPY household-server-config.js ./
-COPY package.json ./
-COPY truffle-config.js ./
-COPY yarn.lock ./
+WORKDIR /household_processing_unit
+
 COPY parity-authority/parity/config/chain.json ./parity/config/chain.json
 COPY parity-authority/parity/config/authority.toml ./parity/authority.toml
 COPY household-processing-unit/scripts/start.sh ./
-COPY scripts/install_parity.sh ./
-
-RUN yarn install --network-concurrency 1
-WORKDIR /household_procesing_unit/household-ui
-RUN yarn install --network-concurrency 1
-
-WORKDIR /household_procesing_unit
-RUN ./install_parity.sh
-WORKDIR /household_procesing_unit
+COPY household-server-config.js ./
 
 CMD ./start.sh

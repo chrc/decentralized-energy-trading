@@ -22,7 +22,7 @@ COPY parity-authority/parity/authorities/authority0.json ./parity/authority.json
 COPY parity-authority/parity/authorities/authority0.pwd ./parity/authority.pwd
 RUN parity account import --config parity/authority.toml parity/authority.json
 
-COPY utility-js ./utility-js
+# COPY utility-js ./utility-js
 COPY contracts ./contracts
 COPY migrations ./migrations
 COPY helpers ./helpers
@@ -31,9 +31,9 @@ COPY zokrates-code/ ./zokrates-code
 COPY household-processing-unit/scripts/start_admin.sh ./
 COPY scripts/start_ned.sh ./
 
-COPY ned-server/household-handler.js ./ned-server/household-handler.js
-COPY ned-server/index.js ./ned-server/index.js
-COPY ned-server/zk-handler.js ./ned-server/zk-handler.js
+COPY netting-entity/household-handler.js ./netting-entity/household-handler.js
+COPY netting-entity/index.js ./netting-entity/index.js
+COPY netting-entity/zk-handler.js ./netting-entity/zk-handler.js
 
 COPY yarn.lock ./
 COPY package.json ./

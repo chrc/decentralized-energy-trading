@@ -57,7 +57,7 @@ check_upgrade() {
   esac
 
   # Determine old (installed) Version 
-  parity_bin=$(which parity)
+  parity_bin=$(which parity || echo)
 
         if [ -z $parity_bin ] ; then
                 OLD_VERSION="0.0.0"
