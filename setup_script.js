@@ -41,7 +41,9 @@ function generateServer(n) {
 
     serverString += `
   household-server-${i + 1}:
-    build: './household-server'
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
     command: ${command}
     volumes:
       - /usr/src/app
@@ -64,7 +66,9 @@ function generateSensor(numProducers, numConsumers) {
   for (let i = 0; i < numProducers; i++) {
     sensorString += `
   sensor-server-${i + 1}:
-    build: './mock-sensor'
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
     command: yarn run-sensor -h household-server-${i + 1} -p ${hhPorts[i]} -e +
     volumes:
       - /usr/src/app
@@ -80,7 +84,9 @@ function generateSensor(numProducers, numConsumers) {
   for (let i = numProducers; i < numProducers + numConsumers; i++) {
     sensorString += `
   sensor-server-${i + 1}:
-    build: './mock-sensor'
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
     command: yarn run-sensor -h household-server-${i + 1} -p ${hhPorts[i]} -e -
     volumes:
       - /usr/src/app
@@ -105,7 +111,9 @@ version: '3.5'
 services:
 
   netting-server:
-    build: './netting-entity/dockerized_setup'
+    build:
+      context: .
+      dockerfile: netting-entity/Dockerfile
     command: yarn run-netting-entity -p 3000 -i 60000
     volumes:
       - /usr/src/app
