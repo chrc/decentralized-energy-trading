@@ -239,7 +239,7 @@ ${packedString} ${returnString.slice(0, -1)}
       // Time Interval of the ned server triggering the netting in the ZoKrates execution environment
       nettingInterval: 10000,
       // Working directory of the file and the child process
-      workingDir: "./ned-server",
+      workingDir: "./netting-entity",
       // File name to execute
       fileName: "helloworld.sh",
       // Execution environment for the file
