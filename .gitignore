@@ -78,6 +78,9 @@ package-lock.json
 
 # Parity
 **/bootnode.key
+/parity-authority/parity/authorities/authority*.json
+/parity-authority/parity/authorities/authority*.pwd
+/parity-authority/parity/node*.network.key
 .idea/codeStyles/Project.xml
 # Benchmark chain data
 benchmark/parity/chain-data
