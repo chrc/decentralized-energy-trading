@@ -10,8 +10,9 @@ fi
 PROSUMER=$1
 CONSUMER=$2
 
-HH=$1+$2
+HH=$(($1+$2))
 
+mkdir -p parity/authorities
 for ((i=3; i<=$HH; i++))
 do
 FILE=parity/authorities/authority$i.json
@@ -19,11 +20,10 @@ if [[ -f "$FILE" ]]; then
     rm -f $FILE
     echo "Deleted existing file!"
 fi
-yes "node$i" | ethkey generate parity/authorities/authority$i.json
 done
 
 yarn generate-docker-parity $HH
 
-#yarn migrate-contracts-authority
+yarn migrate-contracts-authority
 
 yarn setup-system $PROSUMER $CONSUMER

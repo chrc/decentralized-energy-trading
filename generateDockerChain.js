@@ -1,23 +1,25 @@
 const keyth = require('keythereum')
 const fs = require('fs')
 
-function generatePrivateKeyFile(hhNo){
-    
-    var keyobj = JSON.parse(fs.readFileSync(`./parity-authority/parity/authorities/authority${hhNo}.json`, 'utf8'));
-    
-    var privateKey = keyth.recover(`node${hhNo}`,keyobj) 
-    
-    //console.log("This is the private key:", privateKey.toString('hex'));
+function generateFilesForHH(hhNo){
 
-    fs.writeFile(`./parity-authority/parity/node${hhNo}.network.key`, (privateKey.toString('hex')), 'utf8',(err) => {   
-        if (err) throw err;
-      })
-}
+  var dk = keyth.create();
+  var password = `node${hhNo}`;
+  var keyobj = keyth.dump(password, dk.privateKey, dk.salt, dk.iv);
 
-function generatePasswordFile(hhNo){
-    fs.writeFile(`./parity-authority/parity/authorities/authority${hhNo}.pwd`, `node${hhNo}`, 'utf8',(err) => {   
-        if (err) throw err;
-      }) 
+  fs.writeFileSync(`./parity-authority/parity/authorities/authority${hhNo}.json`, JSON.stringify(keyobj), 'utf8', (err) => {
+    if (err) throw err;
+  });
+
+  var privateKey = keyth.recover(`node${hhNo}`, keyobj);
+
+  fs.writeFile(`./parity-authority/parity/node${hhNo}.network.key`, privateKey.toString('hex'), 'utf8', (err) => {
+      if (err) throw err;
+  });
+
+  fs.writeFileSync(`./parity-authority/parity/authorities/authority${hhNo}.pwd`, password, 'utf8', (err) => {
+      if (err) throw err;
+  });
 }
 
 function generateMonitoringAppFile(hhNo){
@@ -115,7 +117,7 @@ function generateMonitoringAppFile(hhNo){
   }${new_string}
 ]`
 
-fs.writeFile('./parity-authority/monitor/app.json', standard_string, 'utf8',(err) => {   
+fs.writeFileSync('./parity-authority/monitor/app.json', standard_string, 'utf8',(err) => {
     if (err) throw err;
   })
 
@@ -266,27 +268,22 @@ networks:
 
 let args = process.argv.slice(2);
 
-let parity_yml;
-
-
-
 let hh;
 
 if((args.length === 1) && args[0] >= 3){
-    
+ 
   hh = Number(args[0]);
 
   for(let i = 3; i <= hh; i++){
-      generatePrivateKeyFile(i);
-      generatePasswordFile(i);
+      generateFilesForHH(i);
   }
   
   generateMonitoringAppFile(hh);
 
   
-  parity_yml = generateYML(hh);
+  const parityYml = generateYML(hh);
 
-  fs.writeFile('parity-authority/parity_test.yml', parity_yml, 'utf8',(err) => {   
+  fs.writeFile('parity-authority/parity_test.yml', parityYml, 'utf8',(err) => {
     if (err) throw err;
   })
   console.log("DONE!");
