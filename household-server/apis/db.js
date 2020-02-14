@@ -14,12 +14,12 @@ module.exports = {
   createDB: (dbUrl, dbName, collectionList) => {
     return new Promise((resolve, reject) => {
       MongoClient.connect(dbUrl, { useNewUrlParser: true }, (err, db) => {
-        if (err) reject(err);
+        if (err) return reject(err);
         console.log("Database created!");
         const dbo = db.db(dbName);
         collectionList.forEach(collection => {
           dbo.createCollection(collection, (err, res) => {
-            if (err) reject(err);
+            if (err) return reject(err);
             console.log("Collection", collection, "created!");
             db.close();
           });
