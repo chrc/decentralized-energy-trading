@@ -8,8 +8,8 @@
       address: "0x00bd138abd70e2f00903268f3db08f2d25677c9e",
       // Password to unlock NED node
       password: "node0",
-      // Name of JSON RPC interface specified in truffle-config.js
-      network: "authority",
+      // Port of parity JSON RPC interface
+      rpcport: 8546,
       // Time Interval of the ned server triggering the netting in the ZoKrates execution environment
       nettingInterval: 15000,
       // Working directory of the file and the child process

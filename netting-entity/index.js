@@ -18,17 +18,14 @@ commander
   .option("-h, --host <type>", "ip of ned server")
   .option("-p, --port <type>", "port of ned server")
   .option("-i, --interval <type>", "interval of the netting")
-  .option(
-    "-n, --network <type>",
-    "network name specified in truffle-config.js"
-  );
+  .option("-r, --rpcport <port>", "port of the parity RPC endpoint");
 commander.parse(process.argv);
 
 const config = {
   nettingInterval: commander.interval || serverConfig.nettingInterval,
   host: commander.host || serverConfig.host,
   port: commander.port || serverConfig.port,
-  network: commander.network || serverConfig.network,
+  rpcport: commander.rpcport || serverConfig.rpcport,
   address: serverConfig.address,
   password: serverConfig.password
 };
@@ -41,7 +38,7 @@ let utilityContract;
 let latestBlockNumber;
 
 async function init() {
-  web3 = web3Helper.initWeb3(config.network);
+  web3 = web3Helper.initWeb3Port(config.rpcport);
   latestBlockNumber = await web3.eth.getBlockNumber();
   utilityContract = new web3.eth.Contract(
     contractHelper.getAbi("dUtility"),

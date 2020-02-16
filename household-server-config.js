@@ -19,8 +19,8 @@ module.exports = {
   address: "0x00bd138abd70e2f00903268f3db08f2d25677c9e",
   // Path to the password file to unlock above authority node
   password: "node0",
-  // Name of JSON RPC interface specified in `truffle-config.js`
-  network: "authority",
+  // Port of parity JSON RPC interface
+  rpcport: 8546,
   // Time Interval of the Mock-Sensor sending Data to the Household Server in ms
   sensorInterval: 60000
 };

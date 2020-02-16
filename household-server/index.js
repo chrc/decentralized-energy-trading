@@ -22,10 +22,7 @@ commander
   .option("-a, --address <type>", "address of the parity account")
   .option("-P, --password <type>", "password of the parity account")
   .option("-i, --interval <milliseconds>", "billing interval")
-  .option(
-    "-n, --network <type>",
-    "network name specified in truffle-config.js"
-  );
+  .option("-r, --rpcport <port>", "port of the parity RPC endpoint");
 commander.parse(process.argv);
 
 // Configuration wrapper
@@ -34,7 +31,7 @@ const config = {
   port: commander.port || serverConfig.port,
   dbUrl: commander.dbUrl || serverConfig.dbUrl,
   nedUrl: commander.nedUrl || serverConfig.nedUrl,
-  network: commander.network || serverConfig.network,
+  rpcport: commander.rpcport || serverConfig.rpcport,
   address: commander.address || serverConfig.address,
   password: commander.password || serverConfig.password,
   sensorInterval: commander.interval || serverConfig.sensorInterval,
@@ -63,7 +60,7 @@ let utilityContract;
 let latestBlockNumber;
 
 async function init() {
-  web3 = web3Helper.initWeb3(config.network);
+  web3 = web3Helper.initWeb3Port(config.rpcport);
   latestBlockNumber = await web3.eth.getBlockNumber();
   utilityContract = new web3.eth.Contract(
     contractHelper.getAbi("dUtility"),
@@ -108,7 +105,7 @@ async function checkNetting(){
   }
   return await request(options)
     .then((res, err) => {
-      const meterDeltaHash = blockchain.getAfterNettingHash(config.network, config.address, config.password)
+      const meterDeltaHash = blockchain.getAfterNettingHash(web3, config.address, config.password)
       return zokratesHelper.packAndHash(res.meterDelta) != meterDeltaHash
     })
 }

@@ -7,6 +7,9 @@ module.exports = {
     const { host, port } = truffleConfig.networks[network];
     return new Web3(`ws://${host}:${port}`, null, {});
   },
+  initWeb3Port: port => {
+    return new Web3(`ws://127.0.0.1:${port}`, null, {});
+  },
   /**
    * Signs given data.
    * @param {Object} web3 Web3 instance.

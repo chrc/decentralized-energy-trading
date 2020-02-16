@@ -63,7 +63,7 @@ docker-compose -f mongo/docker-compose.yml up -d
 # Household 1
 yarn run-server \
   -a 0x00aa39d30f0d20ff03a22ccfc30b7efbfca597c2 \
-  -P node1 -n authority_1 \
+  -P node1 -r 8556 \
   -d mongodb://127.0.0.1:27011
 ```
 
@@ -71,7 +71,7 @@ yarn run-server \
 # Household 2
 yarn run-server -p 3003 \
   -a 0x002e28950558fbede1a9675cb113f0bd20912019 \
-  -P node2 -n authority_2 \
+  -P node2 -r 8566 \
   -d mongodb://127.0.0.1:27012
 ```
 

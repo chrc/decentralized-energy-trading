@@ -48,9 +48,9 @@ Collection created!
 4. You can also overwrite the `household-server-config` values in the CLI
 
 ```bash
-yarn run-server -h <HOST> -p <PORT> -d <DB_URL> -n <NETWORK>
+yarn run-server -h <HOST> -p <PORT> -d <DB_URL> -r <RPC_PORT>
 # OR
-yarn run-server --host <HOST> --port <PORT> --dbUrl <DB_URL> --network <NETWORK>
+yarn run-server --host <HOST> --port <PORT> --dbUrl <DB_URL> --rpcport <RPC_PORT>
 ```
 
 ## Interact with the household-server

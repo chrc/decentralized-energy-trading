@@ -24,14 +24,15 @@ function generateServer(n) {
   for (let i = 0; i < n; i++) {
     hhPorts[i] = portStart + i;
 
-    const keyJson = JSON.parse(fs.readFileSync(`./parity-authority/parity/authorities/authority${i + 1}.json`, 'utf8'));
+    const keyJsonPath = `./parity-authority/parity/authorities/authority${i + 1}.json`
+    const keyJson = JSON.parse(fs.readFileSync(keyJsonPath, 'utf8'));
     const address = "0x" + keyJson.address;
 
     let command = `yarn run-server`;
     command += ` -p 3002`;
     command += ` -a ${address}`;
     command += ` -P node${i + 1}`;
-    command += ` -n authority_${i + 1}`;
+    command += ` -r ${10 * i + 8546}`;
     command += ` -d mongodb://mongo-${i + 1}:27017`;
     command += ` -N http://netting-server:3000`;
 
