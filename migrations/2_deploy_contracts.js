@@ -12,7 +12,6 @@ const { address, password } = require("../household-server-config");
 const {
   UTILITY_ADDRESS,
   AUTHORITY_ADDRESS,
-  OTHER_AUTHORITY_ADDRESSES,
   OWNED_SET_ADDRESS,
   TESTS_FAKE_ADDRESS,
   VERIFIER_ADDRESS
@@ -23,6 +22,7 @@ async function addValidator(validator, ownedSetInstance, web3) {
   process.stdout.write(`  Adding ${validator} to OwnedSet contract ... `);
   await web3.eth.personal.unlockAccount(address, password, null);
   await ownedSetInstance.addValidator(validator, {
+    gas: 20000000,
     from: AUTHORITY_ADDRESS
   });
   process.stdout.write(chalk.green("done\n"));
@@ -84,8 +84,23 @@ module.exports = async (deployer, network, [authority]) => {
       });
       process.stdout.write(chalk.green("done\n"));
 
+      process.stdout.write("  Reading authority addresses ... ");
+      const otherAuthorityAddresses = [];
+      const authoritiesDir = "parity-authority/parity/authorities/";
+      const fileNames = fs.readdirSync(authoritiesDir);
+      for (const fileName of fileNames) {
+        if (fileName.endsWith(".json") && fileName !== "authority0.json") {
+          const contents = fs.readFileSync(`${authoritiesDir}/${fileName}`);
+          const data = JSON.parse(contents);
+          otherAuthorityAddresses.push(data.address);
+        }
+      }
+      let color = chalk.red;
+      if (otherAuthorityAddresses.length > 0) color = chalk.green;
+      process.stdout.write(color(`Found ${otherAuthorityAddresses.length}\n`));
+
       process.stdout.write("  Adding authority addresses ...\n");
-      await asyncUtils.asyncForEach(OTHER_AUTHORITY_ADDRESSES, async a => {
+      await asyncUtils.asyncForEach(otherAuthorityAddresses, async a => {
         await addValidator(a, ownedSetInstanceInAuthority, web3);
         await web3.eth.personal.unlockAccount(address, password, null);
         process.stdout.write(
@@ -93,15 +108,17 @@ module.exports = async (deployer, network, [authority]) => {
         );
         const params = [
           {
+            gas: 20000000,
             from: AUTHORITY_ADDRESS,
             to: "0x" + a,
             value: "0xde0b6b3a7640000"
           },
           "node0"
         ];
-        await callRPC("personal_sendTransaction", 8545, params).body;
+        await callRPC("personal_sendTransaction", 8545, params);
         process.stdout.write(chalk.green("done\n"));
       });
+      process.stdout.write(chalk.green("All authorities done\n"));
 
       await addValidator(TESTS_FAKE_ADDRESS, ownedSetInstanceInAuthority, web3);
       await finalizeChange(ownedSetInstanceInAuthority, web3);
@@ -125,12 +142,12 @@ module.exports = async (deployer, network, [authority]) => {
         });
 
       await web3.eth.personal.unlockAccount(address, password, null);
-      const verifierAddress = await deployer.deploy(verifier, { gas: 20000000})
+      const verifierAddress = await deployer.deploy(verifier, { gas: 20000000 })
         .then(inst => {
           return inst.address;
         });
       await web3.eth.personal.unlockAccount(address, password, null);
-      fs.writeFile('tmp/addresses.txt', JSON.stringify({contract: contractAddress, verifier: verifierAddress}),
+      fs.writeFile('tmp/addresses.txt', JSON.stringify({ contract: contractAddress, verifier: verifierAddress }),
         function (err) {
           if (err) throw err;
         }
