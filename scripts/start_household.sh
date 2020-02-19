@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Starts a household server and writes its pid to ./hhs_$nr.pid
-# Also starts a corresponding meter sensor and writes its pid to ./meter_$nr.pid
+# Starts a household server and writes its pid to run/hhs_$id.pid
+# Also starts a corresponding meter sensor and writes its pid to run/meter_$id.pid
+# Redirects stdout and stderr to run/{hhs,meter}_$id.log correspondingly.
 # Args: <id>
 #   id: number of the household, starting at 1
-# To stop them, run stop_household.sh $nr
+# To stop them, run stop_household.sh $id
 
 id=$1
 
@@ -13,6 +14,8 @@ scripts/stop_household.sh $id
 
 # Exit if any subcommand fails
 set -e
+
+mkdir -p run
 
 HHS_PORT=$(( id + 3001 ))
 MONGO_PORT=$(( id + 27010 ))
@@ -25,9 +28,11 @@ yarn run-server \
   -a "$PARITY_ADDRESS" \
   -P node$id \
   -r $PARITY_PORT \
-& echo $! > hhs_$id.pid
+  &>> run/hhs_$id.log \
+& echo $! > run/hhs_$id.pid
 
 ENERGY="$( [ $(( id % 2 )) -eq 0 ] && echo "+" || echo "-" )"
 
 yarn run-sensor -p $HHS_PORT -e "$ENERGY" \
-& echo $! > meter_$id.pid
+  &>> run/meter_$id.log \
+& echo $! > run/meter_$id.pid
