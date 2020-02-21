@@ -18,6 +18,7 @@ module.exports = {
    * }} config Server configuration
    */
   collectTransfers: async config => {
+    if (!config.dbUrl) return;
     const latestSavedTimestamp = await db.getLatestTimestamp(
       config.dbUrl,
       config.dbName,
