@@ -2,6 +2,7 @@ const shell = require("shelljs");
 const chalk = require("chalk");
 const fs = require("fs");
 const { performance } = require("perf_hooks");
+const { measureEvent } = require("../helpers/measurements");
 
 /*
 Because ZoKrates writes multiple files to disk instead of returning all output to stdout,
@@ -38,6 +39,7 @@ function tryStartWorking() {
  * @returns {Promise<{ hhAddresses: any[], proofData: any }>}
  */
 async function generateProof(utilityBeforeNetting, utilityAfterNetting, billingPeriod, mode) {
+  measureEvent("zokrates", "queue_begin", billingPeriod);
   let resultHandler;
   const promise = new Promise((resolve, reject) => {
     resultHandler = { resolve, reject };
@@ -63,6 +65,8 @@ async function generateProof(utilityBeforeNetting, utilityAfterNetting, billingP
  */
 async function _generateProof(argsObj) {
   const { utilityBeforeNetting, utilityAfterNetting, billingPeriod, mode } = argsObj;
+  measureEvent("zokrates", "queue_end", billingPeriod);
+  measureEvent("zokrates", "computations_begin", billingPeriod);
 
   let cW_t0 = 0;
   let cW_t1 = 0;
@@ -86,6 +90,7 @@ async function _generateProof(argsObj) {
   const deltasConsumersAfterNet = hhAddressesConsumersBeforeNet.map(address => Math.abs(utilityAfterNetting.households[address].meterDelta)).join(" ");
 
   process.stdout.write("Computing witness...");
+  measureEvent("zokrates", "compute_witness_begin", billingPeriod);
 
   const command = `zokrates compute-witness -a ${deltasProducersBeforeNet} ${deltasConsumersBeforeNet} ${deltasProducersAfterNet} ${deltasConsumersAfterNet} > /dev/null`;
   console.log(command);
@@ -99,6 +104,7 @@ async function _generateProof(argsObj) {
     throw new Error("zokrates compute-witness failed: no ~out_*");
   }
 
+  measureEvent("zokrates", "compute_witness_end", billingPeriod);
   process.stdout.write(chalk.green("done\n"));
 
   if (mode === "benchmark_mode") {
@@ -107,11 +113,13 @@ async function _generateProof(argsObj) {
   }
 
   process.stdout.write("Generating proof...");
+  measureEvent("zokrates", "generate_proof_begin", billingPeriod);
 
   gP_t0 = performance.now();
   await shellExecAsync("zokrates generate-proof > /dev/null");
   gP_t1 = performance.now();
 
+  measureEvent("zokrates", "generate_proof_end", billingPeriod);
   process.stdout.write(chalk.green("done\n"));
 
   if (mode === "benchmark_mode") {
@@ -125,6 +133,7 @@ async function _generateProof(argsObj) {
   let rawdata = fs.readFileSync("proof.json");
   let proofData = JSON.parse(rawdata);
 
+  measureEvent("zokrates", "computations_end", billingPeriod);
   return { hhAddresses, proofData };
 }
 

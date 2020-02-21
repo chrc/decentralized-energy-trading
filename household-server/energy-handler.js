@@ -1,10 +1,8 @@
 const web3Utils = require("web3-utils");
-const sha256 = require("js-sha256");
-
+const { measureEvent } = require("../helpers/measurements");
 const { getBillingPeriod } = require("../helpers/billing-cycles");
 const web3Helper = require("../helpers/web3");
 const zokratesHelper = require("../helpers/zokrates");
-const conversionHelper = require("../helpers/conversion");
 
 const ned = require("./apis/ned");
 
@@ -32,9 +30,15 @@ module.exports = {
     const { address, password, sensorInterval } = config;
     const timestamp = Date.now();
     const billingPeriod = getBillingPeriod(sensorInterval, timestamp);
+    const hhid = "household_" + config.address;
+    const measureEvt = name =>
+      measureEvent(hhid, name, billingPeriod, config.address);
+
+    measureEvt("meter_reading_process_begin");
 
     const hash = zokratesHelper.packAndHash(meterDelta);
 
+    measureEvt("meter_to_contract_begin");
     await web3.eth.personal.unlockAccount(address, password, null);
     await utilityContract.methods
       .updateRenewableEnergy(billingPeriod, address, web3Utils.hexToBytes(hash))
@@ -45,6 +49,7 @@ module.exports = {
         }
         console.log("dUtility.updateRenewableEnergy txHash", txHash);
       });
+    measureEvt("meter_to_contract_end");
 
     const { signature } = await web3Helper.signData(
       web3,
@@ -53,12 +58,16 @@ module.exports = {
       hash
     );
 
-    return ned.putSignedMeterReading(config.nedUrl, address, {
+    measureEvt("meter_to_net_begin");
+    ned.putSignedMeterReading(config.nedUrl, address, {
       signature,
       hash,
       timestamp,
       billingPeriod,
       meterDelta,
     });
+    measureEvt("meter_to_net_end");
+
+    measureEvt("meter_reading_process_end");
   }
 };

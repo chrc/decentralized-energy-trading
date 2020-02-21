@@ -1,5 +1,4 @@
 const express = require("express");
-const fs = require("fs");
 const cors = require("cors");
 const commander = require("commander");
 const db = require("./apis/db");
@@ -12,6 +11,7 @@ const web3Helper = require("../helpers/web3");
 const zokratesHelper = require("../helpers/zokrates");
 const contractHelper = require("../helpers/contract");
 const serverConfig = require("../household-server-config");
+const { measureEvent } = require("../helpers/measurements");
 
 // Specify cli options
 commander
@@ -59,7 +59,10 @@ let web3;
 let utilityContract;
 let latestBlockNumber;
 
+const hhid = "household_" + config.address;
+
 async function init() {
+  measureEvent(hhid, "init", null, config.address);
   web3 = web3Helper.initWeb3Port(config.rpcport);
   latestBlockNumber = await web3.eth.getBlockNumber();
   utilityContract = new web3.eth.Contract(
@@ -74,13 +77,16 @@ async function init() {
       const billingPeriod = event.returnValues.billingPeriod;
       if (error) {
         console.error(error.message);
+        measureEvent(hhid, "netting_failure", billingPeriod, config.address);
         throw error;
       }
       if (checkNetting(billingPeriod)) {
+        measureEvent(hhid, "netting_valid", billingPeriod, config.address);
         console.log(`Netting ${billingPeriod} Successful!`);
         latestBlockNumber = event.blockNumber;
         transferHandler.collectTransfers(config);
       } else {
+        measureEvent(hhid, "netting_invalid", billingPeriod, config.address);
         console.error(event);
         throw new Error("Preimage doesn't Match stored hash. NETTING INVALID");
       }
@@ -94,6 +100,7 @@ init();
  * function for retrieving meterDelta from ned-server and checks if it's the correct preimage for meterDelta. Needed for households to validate netting
  */
 async function checkNetting(billingPeriod) {
+  measureEvent(hhid, "check_netting_begin", billingPeriod, config.address);
   const randomHash = zokratesHelper.packAndHash(Math.floor(Math.random() * Math.floor(999999999)));
   const { data, signature } = await web3Helper.signData(web3, config.address, config.password, randomHash)
 
@@ -109,6 +116,7 @@ async function checkNetting(billingPeriod) {
   const response = await request(options);
   const meterDeltaHash = await blockchain.getAfterNettingHash(web3, config.address, config.password);
   const result = zokratesHelper.packAndHash(response.meterDelta) !== meterDeltaHash;
+  measureEvent(hhid, "check_netting_end", billingPeriod, config.address);
   return result;
 }
 

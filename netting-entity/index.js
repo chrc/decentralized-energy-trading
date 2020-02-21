@@ -3,14 +3,13 @@ const cors = require("cors");
 const commander = require("commander");
 const web3Utils = require("web3-utils");
 const shell = require("shelljs");
-const fs = require("fs");
 const Utility = require("./utility");
 const hhHandler = require("./household-handler");
 const zkHandler = require("./zk-handler");
 const { getBillingPeriod } = require("../helpers/billing-cycles");
 const web3Helper = require("../helpers/web3");
 const contractHelper = require("../helpers/contract");
-
+const { measureEvent } = require("../helpers/measurements");
 const serverConfig = require("../ned-server-config");
 
 // Specify cli options
@@ -39,6 +38,7 @@ let utilityContract;
 let latestBlockNumber;
 
 async function init() {
+  measureEvent("nettingserver", "init");
   web3 = web3Helper.initWeb3Port(config.rpcport);
   latestBlockNumber = await web3.eth.getBlockNumber();
   utilityContract = new web3.eth.Contract(
@@ -59,8 +59,10 @@ async function init() {
       const billingPeriod = event.returnValues.billingPeriod;
       if (error) {
         console.error(error.msg);
+        measureEvent("nettingserver", "netting_failure", billingPeriod);
         throw error;
       }
+      measureEvent("nettingserver", "netting_success", billingPeriod);
       console.log(`Netting ${billingPeriod} Successful!`);
       latestBlockNumber = event.blockNumber;
       // TODO: unlock corresponding receipts in HTTP API
@@ -89,6 +91,7 @@ async function init() {
       console.log(`Skipping billing period ${billingPeriod}: No households submitted meter readings.`);
       return;
     }
+    measureEvent("nettingserver", "netting_begin", billingPeriod);
 
     let utilityBeforeNetting = JSON.parse(JSON.stringify(utility)); // dirty hack for obtaining deep copy of utility
     Object.setPrototypeOf(utilityBeforeNetting, Utility.prototype);
@@ -101,16 +104,19 @@ async function init() {
 
     allTransfers = allTransfers.concat(utilityAfterNetting.transfers);
 
+    measureEvent("nettingserver", "zokrates_begin", billingPeriod);
     let { hhAddresses, proofData: data } = await zkHandler.generateProof(
       utilityBeforeNetting,
       utilityAfterNetting,
       billingPeriod,
       "production_mode"
     );
+    measureEvent("nettingserver", "zokrates_end", billingPeriod);
 
     if (hhAddresses.length <= 0) {
       console.log("No households to hash.");
     } else {
+      measureEvent("nettingserver", "check_netting_begin", billingPeriod);
       await web3.eth.personal.unlockAccount(
         config.address,
         config.password,
@@ -132,6 +138,8 @@ async function init() {
           }
         });
     }
+    measureEvent("nettingserver", "check_netting_end", billingPeriod);
+    measureEvent("nettingserver", "netting_end", billingPeriod);
     // TODO: after some time (e.g., all clients fetched their receipts), remove utility for this billing period, to free up the used memory
   }
 
@@ -213,6 +221,7 @@ app.put("/energy/:householdAddress", async (req, res) => {
     if (utility.addHousehold(householdAddress)) {
       console.log(`New household ${householdAddress} added`);
     }
+    measureEvent("nettingserver", "meter_reading_received", billingPeriod, householdAddress);
     console.log(
       `Incoming meter delta ${meterDelta} at ${timestamp} for ${householdAddress}`
     );
