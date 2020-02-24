@@ -114,7 +114,7 @@ async function checkNetting(billingPeriod) {
     }
   };
   const response = await request(options);
-  const meterDeltaHash = await blockchain.getAfterNettingHash(web3, config.address, config.password);
+  const meterDeltaHash = await blockchain.getAfterNettingHash(web3, config.address, config.password, billingPeriod);
   const result = zokratesHelper.packAndHash(response.meterDelta) !== meterDeltaHash;
   measureEvent(hhid, "check_netting_end", billingPeriod, config.address);
   return result;
