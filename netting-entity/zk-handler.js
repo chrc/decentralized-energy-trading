@@ -17,7 +17,10 @@ let isWorking = false;
 
 function tryStartWorking() {
   // rely on NodeJS Global Interpreter Lock for synchronization
-  if (isWorking) return;
+  if (isWorking) {
+    console.log(`ZoKrates already busy, ${workQueue.length} in queue`);
+    return;
+  }
   const workItem = workQueue.shift();
   if (!workItem) return; // nothing to do
 
