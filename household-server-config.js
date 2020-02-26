@@ -22,5 +22,5 @@ module.exports = {
   // Port of parity JSON RPC interface
   rpcport: 8546,
   // Time Interval of the Mock-Sensor sending Data to the Household Server in ms
-  sensorInterval: 60000
+  sensorInterval: 120000
 };
