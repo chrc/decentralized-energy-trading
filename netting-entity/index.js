@@ -116,7 +116,7 @@ async function init() {
     if (hhAddresses.length <= 0) {
       console.log("No households to hash.");
     } else {
-      measureEvent("nettingserver", "check_netting_begin", billingPeriod);
+      measureEvent("nettingserver", "check_netting_NS_begin", billingPeriod);
       await web3.eth.personal.unlockAccount(
         config.address,
         config.password,
@@ -138,7 +138,7 @@ async function init() {
           }
         });
     }
-    measureEvent("nettingserver", "check_netting_end", billingPeriod);
+    measureEvent("nettingserver", "check_netting_NS_end", billingPeriod);
     measureEvent("nettingserver", "netting_end", billingPeriod);
     // TODO: after some time (e.g., all clients fetched their receipts), remove utility for this billing period, to free up the used memory
   }

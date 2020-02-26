@@ -100,7 +100,7 @@ init();
  * function for retrieving meterDelta from ned-server and checks if it's the correct preimage for meterDelta. Needed for households to validate netting
  */
 async function checkNetting(billingPeriod) {
-  measureEvent(hhid, "check_netting_begin", billingPeriod, config.address);
+  measureEvent(hhid, "check_netting_HHS_begin", billingPeriod, config.address);
   const randomHash = zokratesHelper.packAndHash(Math.floor(Math.random() * Math.floor(999999999)));
   const { data, signature } = await web3Helper.signData(web3, config.address, config.password, randomHash)
 
@@ -116,7 +116,7 @@ async function checkNetting(billingPeriod) {
   const response = await request(options);
   const meterDeltaHash = await blockchain.getAfterNettingHash(web3, config.address, config.password, billingPeriod);
   const result = zokratesHelper.packAndHash(response.meterDelta) !== meterDeltaHash;
-  measureEvent(hhid, "check_netting_end", billingPeriod, config.address);
+  measureEvent(hhid, "check_netting_HHS_end", billingPeriod, config.address);
   return result;
 }
 
