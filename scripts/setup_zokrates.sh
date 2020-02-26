@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Called by setup_script.sh
+
 # Exit if any subcommand fails
 set -e
 

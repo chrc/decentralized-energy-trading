@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Called by `yarn run setup-system`
+
 set -e
 
 if [[ $# -lt 2 ]] ; then
@@ -15,3 +17,5 @@ yarn generate-proving-files $PROSUMER $CONSUMER
 yarn setup-zokrates
 
 yarn generate-docker-files $PROSUMER $CONSUMER
+
+yarn setup-parity $( $PROSUMER + $CONSUMER ))
