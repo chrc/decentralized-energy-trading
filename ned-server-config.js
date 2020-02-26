@@ -11,7 +11,7 @@
       // Port of parity JSON RPC interface
       rpcport: 8546,
       // Time Interval of the ned server triggering the netting in the ZoKrates execution environment
-      nettingInterval: 120000,
+      nettingInterval: 240000,
       // Working directory of the file and the child process
       workingDir: "./netting-entity",
       // File name to execute
@@ -19,7 +19,7 @@
       // Execution environment for the file
       executionEnv: "bash",
       //No. of HHs with Energy Production
-      hhProduce: 5,
+      hhProduce: 10,
       //No. of HHs with No Energy Production -> Only Consumption
-      hhConsume: 5
+      hhConsume: 10
     };

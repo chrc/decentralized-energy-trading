@@ -230,5 +230,215 @@
       "WS_SECRET"       : "123",
       "VERBOSITY"       : 3
     }
+  },
+  {
+    "name"              : "authority11",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority11",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority11",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority12",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority12",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority12",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority13",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority13",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority13",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority14",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority14",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority14",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority15",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority15",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority15",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority16",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority16",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority16",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority17",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority17",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority17",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority18",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority18",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority18",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority19",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority19",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority19",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
+  },
+  {
+    "name"              : "authority20",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : true,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "authority20",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "authority20",
+      "WS_SERVER"       : "ws://dashboard:3000",
+      "WS_SECRET"       : "123",
+      "VERBOSITY"       : 3
+    }
   }
 ]

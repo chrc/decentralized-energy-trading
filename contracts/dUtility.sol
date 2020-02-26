@@ -110,7 +110,7 @@ contract dUtility is Mortal, IdUtility {
    * @param hashes array of hashes
    * @return next concatinated hash
    */
-  function _concatNextHash(uint256[40] memory hashes) private returns (bytes32){
+  function _concatNextHash(uint256[80] memory hashes) private returns (bytes32){
     bytes32 res;
     while(lastInputIndex < hashes.length / 2){
       // This assumes that if the first half of the hash is all zero's the second will aswell.
@@ -134,7 +134,7 @@ contract dUtility is Mortal, IdUtility {
     uint256[2] memory _a,
     uint256[2][2] memory _b,
     uint256[2] memory _c,
-    uint256[40] memory _input) private returns (bool success) {
+    uint256[80] memory _input) private returns (bool success) {
     success = verifier.verifyTx(_a, _b, _c, _input);
     if (success) {
       uint256 record = block.number;
@@ -154,7 +154,7 @@ contract dUtility is Mortal, IdUtility {
   function _checkHashes(
     uint256 billingPeriod,
     address[] memory _householdAddrs,
-    uint256[40] memory _inputs
+    uint256[80] memory _inputs
   ) private returns (bool) {
     lastInputIndex = 0;
     nonZeroHashes = 0;
@@ -177,7 +177,7 @@ contract dUtility is Mortal, IdUtility {
     uint256[2] calldata _a,
     uint256[2][2] calldata _b,
     uint256[2] calldata _c,
-    uint256[40] calldata _input
+    uint256[80] calldata _input
     ) external returns (bool){
     // Ensure that all households that reported meter_delta !=0 in the netting reported are represented in both, addresslist and hashlist sent to SC
     // require address.len == hash_not_0.len / 2 where hash_not_0 is hashes recreated from _input that are not 0.
