@@ -223,21 +223,22 @@ ${packedString} ${returnString.slice(0, -1)}
 `;
   }
 
-  function generateNedServerConfig(wE, nE){
+  function generateNedServerConfig(wE, nE) {
+    const conf = require('../ned-server-config.js');
     return `
     module.exports = {
       // IP on which the ned server should run
-      host: "127.0.0.1",
+      host: "${conf.host || "127.0.0.1"}",
       // Port on which the ned server should listen
-      port: 3005,
+      port: ${conf.port || 3005},
       // Ethereum address of NED node
-      address: "0x00bd138abd70e2f00903268f3db08f2d25677c9e",
+      address: "${conf.address || "0x00bd138abd70e2f00903268f3db08f2d25677c9e"}",
       // Password to unlock NED node
-      password: "node0",
+      password: "${conf.password || "node0"}",
       // Name of JSON RPC interface specified in truffle-config.js
       network: "${network}",
       // Time Interval of the ned server triggering the netting in the ZoKrates execution environment
-      nettingInterval: 10000,
+      nettingInterval: ${conf.nettingInterval || 900000 /* 15min */},
       // Working directory of the file and the child process
       workingDir: "./netting-entity",
       // File name to execute
