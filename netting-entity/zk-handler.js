@@ -7,9 +7,9 @@ const { measureEvent } = require("../helpers/measurements");
 /*
 Because ZoKrates writes multiple files to disk instead of returning all output to stdout,
 only one ZoKrates can run at any time.
-To work around this we use the actor pattern: computation requests are enqueued,
-if ZoKrates is idle we start it right away,
-and every time ZoKrates is done we check if there is more work to be started.
+To work around this we use a stack (LIFO): computation requests are pushed onto the stack,
+then we check if ZoKrates is idle; if so, we start the computation right away,
+and every time ZoKrates is done we pop the last computation (if any) from the stack and run it.
 */
 
 const workQueue = [];
@@ -21,7 +21,7 @@ function tryStartWorking() {
     console.log(`ZoKrates already busy, ${workQueue.length} in queue`);
     return;
   }
-  const workItem = workQueue.shift();
+  const workItem = workQueue.pop();
   if (!workItem) return; // nothing to do
 
   isWorking = true;
