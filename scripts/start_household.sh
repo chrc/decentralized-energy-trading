@@ -23,7 +23,7 @@ PARITY_ADDRESS="$( jq -rc .address < "parity-authority/parity/authorities/author
 PARITY_PORT=$(( ( 10 * id ) + 8546 ))
 
   # -d mongodb://127.0.0.1:$MONGO_PORT \
-yarn run-server \
+yarn run run-server \
   -p $HHS_PORT \
   -a "$PARITY_ADDRESS" \
   -P node$id \
@@ -33,6 +33,6 @@ yarn run-server \
 
 ENERGY="$( [ $(( id % 2 )) -eq 0 ] && echo "+" || echo "-" )"
 
-yarn run-sensor -p $HHS_PORT -e "$ENERGY" \
+yarn run run-sensor -p $HHS_PORT -e "$ENERGY" \
   &>> run/meter_$id.log \
 & echo $! > run/meter_$id.pid
