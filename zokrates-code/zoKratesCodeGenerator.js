@@ -235,8 +235,8 @@ ${packedString} ${returnString.slice(0, -1)}
       address: "${conf.address || "0x00bd138abd70e2f00903268f3db08f2d25677c9e"}",
       // Password to unlock NED node
       password: "${conf.password || "node0"}",
-      // Name of JSON RPC interface specified in truffle-config.js
-      network: "${network}",
+      // Port of parity JSON RPC interface
+      rpcport: ${conf.rpcport || 8546},
       // Time Interval of the ned server triggering the netting in the ZoKrates execution environment
       nettingInterval: ${conf.nettingInterval || 900000 /* 15min */},
       // Working directory of the file and the child process
