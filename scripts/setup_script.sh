@@ -18,4 +18,6 @@ yarn setup-zokrates
 
 yarn generate-docker-files $PROSUMER $CONSUMER
 
+yarn update-contract-bytecodes
+
 yarn setup-parity $( $PROSUMER + $CONSUMER ))
