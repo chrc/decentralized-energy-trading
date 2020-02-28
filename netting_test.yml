@@ -158,6 +158,146 @@ services:
     networks:
       - 02-docker_parity_net
 
+  mongo-21:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-22:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-23:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-24:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-25:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-26:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-27:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-28:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-29:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-30:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-31:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-32:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-33:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-34:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-35:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-36:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-37:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-38:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-39:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
+  mongo-40:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - 02-docker_parity_net
+
 
   household-server-1:
     build:
@@ -189,7 +329,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x8c07353a650b4c45206db55c520634388eaeb6dd -P node3 -r 8566 -d mongodb://mongo-3:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xc4a5e8ace95cf832cb63be071a909dcd839bbf1c -P node3 -r 8566 -d mongodb://mongo-3:27017 -N http://netting-server:3000
     ports:
       - "3004:3002"
     depends_on:
@@ -202,7 +342,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x6280afc47d9373abc17068118c2ac43ca5f18ccc -P node4 -r 8576 -d mongodb://mongo-4:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0x7a6716f0aee52bb014ec7a5230b181b054dff964 -P node4 -r 8576 -d mongodb://mongo-4:27017 -N http://netting-server:3000
     ports:
       - "3005:3002"
     depends_on:
@@ -215,7 +355,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x25c4466737c9e90e8cc2da9ceca2b360d4e04877 -P node5 -r 8586 -d mongodb://mongo-5:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0x15c8b676084b8d82968f21dfc4c98f376ae716b6 -P node5 -r 8586 -d mongodb://mongo-5:27017 -N http://netting-server:3000
     ports:
       - "3006:3002"
     depends_on:
@@ -228,7 +368,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0xbbe260d1ebab9f9ede5fc51d54e1db0cbc837215 -P node6 -r 8596 -d mongodb://mongo-6:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xb9ddbd82db3d9bb4614cce469f600675b186df81 -P node6 -r 8596 -d mongodb://mongo-6:27017 -N http://netting-server:3000
     ports:
       - "3007:3002"
     depends_on:
@@ -241,7 +381,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0xd9ce4e39685477bcd47a8b5264eb8f3c9e009923 -P node7 -r 8606 -d mongodb://mongo-7:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0x34ced7c5c96c234a5fa6296ff29550157bca9453 -P node7 -r 8606 -d mongodb://mongo-7:27017 -N http://netting-server:3000
     ports:
       - "3008:3002"
     depends_on:
@@ -254,7 +394,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x537737218a4e0e39234b2fb7c2ee31588f9707a8 -P node8 -r 8616 -d mongodb://mongo-8:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xd5e8db89efe06126b0f7f42d6fe8d0b0973ffec7 -P node8 -r 8616 -d mongodb://mongo-8:27017 -N http://netting-server:3000
     ports:
       - "3009:3002"
     depends_on:
@@ -267,7 +407,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0xf0c8bd817c4cb94f81550a25cdc740e87a29a7d7 -P node9 -r 8626 -d mongodb://mongo-9:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xc7435be41b3a19177aadb77f269c3b06aa796ed1 -P node9 -r 8626 -d mongodb://mongo-9:27017 -N http://netting-server:3000
     ports:
       - "3010:3002"
     depends_on:
@@ -280,7 +420,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x479b0d790b57ae06912aac1bea6fc9c1d41255fc -P node10 -r 8636 -d mongodb://mongo-10:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0x55a06e5bf35b0cb6928ef959de5f490521c598a2 -P node10 -r 8636 -d mongodb://mongo-10:27017 -N http://netting-server:3000
     ports:
       - "3011:3002"
     depends_on:
@@ -293,7 +433,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x2a17aceaf68dd2d333d52c0ab2be7bad8f7ffe6e -P node11 -r 8646 -d mongodb://mongo-11:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0x0d94066ddb6fc01e43dabee7d77db391c2898d2e -P node11 -r 8646 -d mongodb://mongo-11:27017 -N http://netting-server:3000
     ports:
       - "3012:3002"
     depends_on:
@@ -306,7 +446,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0xfbe4022ff64c81d0552a2cadb8beadd6abf871cc -P node12 -r 8656 -d mongodb://mongo-12:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xe84122568180b9e03a58458645605468bdeb38e2 -P node12 -r 8656 -d mongodb://mongo-12:27017 -N http://netting-server:3000
     ports:
       - "3013:3002"
     depends_on:
@@ -319,7 +459,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x3e454c45f58c22caeb8e183681959a035a94c7fa -P node13 -r 8666 -d mongodb://mongo-13:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xda78426475c34d13e08ea7cc9d9b730680f7b8c5 -P node13 -r 8666 -d mongodb://mongo-13:27017 -N http://netting-server:3000
     ports:
       - "3014:3002"
     depends_on:
@@ -332,7 +472,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x661af437f66ebf889c0a090e0fe6cb7cc8b2b4bc -P node14 -r 8676 -d mongodb://mongo-14:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xb750832b5194a8b64319c113b84fcadd50615a2f -P node14 -r 8676 -d mongodb://mongo-14:27017 -N http://netting-server:3000
     ports:
       - "3015:3002"
     depends_on:
@@ -345,7 +485,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x9f8e6187bcacb4d482da1500d67b0ab38010d042 -P node15 -r 8686 -d mongodb://mongo-15:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xa8088958001da5686bec4ed0e763f55fe992b70c -P node15 -r 8686 -d mongodb://mongo-15:27017 -N http://netting-server:3000
     ports:
       - "3016:3002"
     depends_on:
@@ -358,7 +498,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x69967be9eac62d5ce923f15f19a2ac7b0dabcf41 -P node16 -r 8696 -d mongodb://mongo-16:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0x7919b2b903d5ebe4174df570a045e71e143d2cca -P node16 -r 8696 -d mongodb://mongo-16:27017 -N http://netting-server:3000
     ports:
       - "3017:3002"
     depends_on:
@@ -371,7 +511,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0xc7b42ac1e6b2d7a13ba3b6274c27a8e52fcfbbf3 -P node17 -r 8706 -d mongodb://mongo-17:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0x2cb606bb907b04c41754b46709d35a527281c763 -P node17 -r 8706 -d mongodb://mongo-17:27017 -N http://netting-server:3000
     ports:
       - "3018:3002"
     depends_on:
@@ -384,7 +524,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0x7123f772ef40a2dfef3a5fe1d27b494d006390e0 -P node18 -r 8716 -d mongodb://mongo-18:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0x13b31f4019ef1fe3e8bf90cc950bac57fc26f7d8 -P node18 -r 8716 -d mongodb://mongo-18:27017 -N http://netting-server:3000
     ports:
       - "3019:3002"
     depends_on:
@@ -397,7 +537,7 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0xfe4f7ad4b29c9951cfe3892eee6faea2ec421fec -P node19 -r 8726 -d mongodb://mongo-19:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xdd77f5a0b96f8776a615df67d70aa0786124d15e -P node19 -r 8726 -d mongodb://mongo-19:27017 -N http://netting-server:3000
     ports:
       - "3020:3002"
     depends_on:
@@ -410,11 +550,271 @@ services:
     build:
       context: .
       dockerfile: household-processing-unit/Dockerfile
-    command: yarn run-server -p 3002 -a 0xcb3141ecd0df419e085619356c89ce4bd4d04d2d -P node20 -r 8736 -d mongodb://mongo-20:27017 -N http://netting-server:3000
+    command: yarn run-server -p 3002 -a 0xb342827241579221a354c1d507c01418dce5a5d4 -P node20 -r 8736 -d mongodb://mongo-20:27017 -N http://netting-server:3000
     ports:
       - "3021:3002"
     depends_on:
       - mongo-20
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-21:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xb8cd43d730e820c518401c3c374f5d590af9bf28 -P node21 -r 8746 -d mongodb://mongo-21:27017 -N http://netting-server:3000
+    ports:
+      - "3022:3002"
+    depends_on:
+      - mongo-21
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-22:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x15b8f0bbb173dcfc334293131e92bcb60f0454fc -P node22 -r 8756 -d mongodb://mongo-22:27017 -N http://netting-server:3000
+    ports:
+      - "3023:3002"
+    depends_on:
+      - mongo-22
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-23:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x1acde06039fa0f0e77a9008f0a2798a5b7ca7bc7 -P node23 -r 8766 -d mongodb://mongo-23:27017 -N http://netting-server:3000
+    ports:
+      - "3024:3002"
+    depends_on:
+      - mongo-23
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-24:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xa863914ceb2b8a7f24fac3fd46ba549f7cd534b9 -P node24 -r 8776 -d mongodb://mongo-24:27017 -N http://netting-server:3000
+    ports:
+      - "3025:3002"
+    depends_on:
+      - mongo-24
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-25:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xd09437587b77ff7c08b7107e4d34ea3ec29ecdb5 -P node25 -r 8786 -d mongodb://mongo-25:27017 -N http://netting-server:3000
+    ports:
+      - "3026:3002"
+    depends_on:
+      - mongo-25
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-26:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x1ff108f15a646894820f763ddb500efe0187244b -P node26 -r 8796 -d mongodb://mongo-26:27017 -N http://netting-server:3000
+    ports:
+      - "3027:3002"
+    depends_on:
+      - mongo-26
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-27:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x28d63c4f56cd3973687085f91427f508484f344b -P node27 -r 8806 -d mongodb://mongo-27:27017 -N http://netting-server:3000
+    ports:
+      - "3028:3002"
+    depends_on:
+      - mongo-27
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-28:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xe7eaf9eda41fa4f2e8040420424d2263c8295b54 -P node28 -r 8816 -d mongodb://mongo-28:27017 -N http://netting-server:3000
+    ports:
+      - "3029:3002"
+    depends_on:
+      - mongo-28
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-29:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xf90a87164f3627db3951abbfe57f041e90dd50a9 -P node29 -r 8826 -d mongodb://mongo-29:27017 -N http://netting-server:3000
+    ports:
+      - "3030:3002"
+    depends_on:
+      - mongo-29
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-30:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xbdad727098ff60f5b64d07a6e8ad44064c396d41 -P node30 -r 8836 -d mongodb://mongo-30:27017 -N http://netting-server:3000
+    ports:
+      - "3031:3002"
+    depends_on:
+      - mongo-30
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-31:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xb03d8c1e1f751f281c9a1258ba6297ae1214cf0c -P node31 -r 8846 -d mongodb://mongo-31:27017 -N http://netting-server:3000
+    ports:
+      - "3032:3002"
+    depends_on:
+      - mongo-31
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-32:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x446f7a0f2ad39f3ac03c7570f238366727abbd34 -P node32 -r 8856 -d mongodb://mongo-32:27017 -N http://netting-server:3000
+    ports:
+      - "3033:3002"
+    depends_on:
+      - mongo-32
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-33:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x58fd0f65b97a4542f4f12cd19e018beac79b8b91 -P node33 -r 8866 -d mongodb://mongo-33:27017 -N http://netting-server:3000
+    ports:
+      - "3034:3002"
+    depends_on:
+      - mongo-33
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-34:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xa7f4d3d63ccd9060c4880587931868ff199d7d84 -P node34 -r 8876 -d mongodb://mongo-34:27017 -N http://netting-server:3000
+    ports:
+      - "3035:3002"
+    depends_on:
+      - mongo-34
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-35:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0xe753eddee58923df45eac3f09f3e38a4b955cce6 -P node35 -r 8886 -d mongodb://mongo-35:27017 -N http://netting-server:3000
+    ports:
+      - "3036:3002"
+    depends_on:
+      - mongo-35
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-36:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x1f1b34e5202cd4b47c02116382f646ac2a158a0a -P node36 -r 8896 -d mongodb://mongo-36:27017 -N http://netting-server:3000
+    ports:
+      - "3037:3002"
+    depends_on:
+      - mongo-36
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-37:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x67eff83b082b424dd10052e6bf10ab2938cae00b -P node37 -r 8906 -d mongodb://mongo-37:27017 -N http://netting-server:3000
+    ports:
+      - "3038:3002"
+    depends_on:
+      - mongo-37
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-38:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x8e0214117a240b23ba94fbc3227dedc3009af0ba -P node38 -r 8916 -d mongodb://mongo-38:27017 -N http://netting-server:3000
+    ports:
+      - "3039:3002"
+    depends_on:
+      - mongo-38
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-39:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x9705781183fdc4d8e7d83eeb145848f7249ac2f1 -P node39 -r 8926 -d mongodb://mongo-39:27017 -N http://netting-server:3000
+    ports:
+      - "3040:3002"
+    depends_on:
+      - mongo-39
+      - netting-server
+    networks:
+      - 02-docker_parity_net
+
+  household-server-40:
+    build:
+      context: .
+      dockerfile: household-processing-unit/Dockerfile
+    command: yarn run-server -p 3002 -a 0x6da0b811d6fc4586baa28e914f31f6bf0ecbbf89 -P node40 -r 8936 -d mongodb://mongo-40:27017 -N http://netting-server:3000
+    ports:
+      - "3041:3002"
+    depends_on:
+      - mongo-40
       - netting-server
     networks:
       - 02-docker_parity_net
@@ -524,7 +924,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-11 -p 3012 -e -
+    command: yarn run-sensor -h household-server-11 -p 3012 -e +
     depends_on:
       - household-server-11
     networks:
@@ -534,7 +934,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-12 -p 3013 -e -
+    command: yarn run-sensor -h household-server-12 -p 3013 -e +
     depends_on:
       - household-server-12
     networks:
@@ -544,7 +944,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-13 -p 3014 -e -
+    command: yarn run-sensor -h household-server-13 -p 3014 -e +
     depends_on:
       - household-server-13
     networks:
@@ -554,7 +954,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-14 -p 3015 -e -
+    command: yarn run-sensor -h household-server-14 -p 3015 -e +
     depends_on:
       - household-server-14
     networks:
@@ -564,7 +964,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-15 -p 3016 -e -
+    command: yarn run-sensor -h household-server-15 -p 3016 -e +
     depends_on:
       - household-server-15
     networks:
@@ -574,7 +974,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-16 -p 3017 -e -
+    command: yarn run-sensor -h household-server-16 -p 3017 -e +
     depends_on:
       - household-server-16
     networks:
@@ -584,7 +984,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-17 -p 3018 -e -
+    command: yarn run-sensor -h household-server-17 -p 3018 -e +
     depends_on:
       - household-server-17
     networks:
@@ -594,7 +994,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-18 -p 3019 -e -
+    command: yarn run-sensor -h household-server-18 -p 3019 -e +
     depends_on:
       - household-server-18
     networks:
@@ -604,7 +1004,7 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-19 -p 3020 -e -
+    command: yarn run-sensor -h household-server-19 -p 3020 -e +
     depends_on:
       - household-server-19
     networks:
@@ -614,9 +1014,209 @@ services:
     build:
       context: .
       dockerfile: mock-sensor/Dockerfile
-    command: yarn run-sensor -h household-server-20 -p 3021 -e -
+    command: yarn run-sensor -h household-server-20 -p 3021 -e +
     depends_on:
       - household-server-20
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-21:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-21 -p 3022 -e -
+    depends_on:
+      - household-server-21
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-22:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-22 -p 3023 -e -
+    depends_on:
+      - household-server-22
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-23:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-23 -p 3024 -e -
+    depends_on:
+      - household-server-23
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-24:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-24 -p 3025 -e -
+    depends_on:
+      - household-server-24
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-25:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-25 -p 3026 -e -
+    depends_on:
+      - household-server-25
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-26:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-26 -p 3027 -e -
+    depends_on:
+      - household-server-26
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-27:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-27 -p 3028 -e -
+    depends_on:
+      - household-server-27
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-28:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-28 -p 3029 -e -
+    depends_on:
+      - household-server-28
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-29:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-29 -p 3030 -e -
+    depends_on:
+      - household-server-29
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-30:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-30 -p 3031 -e -
+    depends_on:
+      - household-server-30
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-31:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-31 -p 3032 -e -
+    depends_on:
+      - household-server-31
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-32:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-32 -p 3033 -e -
+    depends_on:
+      - household-server-32
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-33:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-33 -p 3034 -e -
+    depends_on:
+      - household-server-33
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-34:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-34 -p 3035 -e -
+    depends_on:
+      - household-server-34
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-35:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-35 -p 3036 -e -
+    depends_on:
+      - household-server-35
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-36:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-36 -p 3037 -e -
+    depends_on:
+      - household-server-36
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-37:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-37 -p 3038 -e -
+    depends_on:
+      - household-server-37
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-38:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-38 -p 3039 -e -
+    depends_on:
+      - household-server-38
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-39:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-39 -p 3040 -e -
+    depends_on:
+      - household-server-39
+    networks:
+      - 02-docker_parity_net
+
+  sensor-server-40:
+    build:
+      context: .
+      dockerfile: mock-sensor/Dockerfile
+    command: yarn run-sensor -h household-server-40 -p 3041 -e -
+    depends_on:
+      - household-server-40
     networks:
       - 02-docker_parity_net
 

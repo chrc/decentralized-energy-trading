@@ -85,7 +85,7 @@ services:
         ID: 3
     command:
       --config parity/config/authority.toml
-      --engine-signer 0xa0255b4e2030c9fe962eceacf76ae5f31fe3c441
+      --engine-signer 0xc4a5e8ace95cf832cb63be071a909dcd839bbf1c
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -106,7 +106,7 @@ services:
         ID: 4
     command:
       --config parity/config/authority.toml
-      --engine-signer 0xcc9cef482b9378513bbb51e00838409d30a5c497
+      --engine-signer 0x7a6716f0aee52bb014ec7a5230b181b054dff964
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -127,7 +127,7 @@ services:
         ID: 5
     command:
       --config parity/config/authority.toml
-      --engine-signer 0xa5b418995661512d06581506e43ad0222a4822e5
+      --engine-signer 0x15c8b676084b8d82968f21dfc4c98f376ae716b6
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -148,7 +148,7 @@ services:
         ID: 6
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x2fe5bd43cc2b5209f9aa39cbc5ecdbc085b0a939
+      --engine-signer 0xb9ddbd82db3d9bb4614cce469f600675b186df81
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -169,7 +169,7 @@ services:
         ID: 7
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x302423184bac5ef0fe9235b0af724bf06cfa87b6
+      --engine-signer 0x34ced7c5c96c234a5fa6296ff29550157bca9453
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -190,7 +190,7 @@ services:
         ID: 8
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x818f463f6ce0c6db4d536a9e5c39146fef6f50d1
+      --engine-signer 0xd5e8db89efe06126b0f7f42d6fe8d0b0973ffec7
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -211,7 +211,7 @@ services:
         ID: 9
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x6752ab464fa87c91f8813b696dcbb1fb7b3142cb
+      --engine-signer 0xc7435be41b3a19177aadb77f269c3b06aa796ed1
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -232,7 +232,7 @@ services:
         ID: 10
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x73864c28199d1d98625e8422c62ee41d961e80c5
+      --engine-signer 0x55a06e5bf35b0cb6928ef959de5f490521c598a2
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -253,7 +253,7 @@ services:
         ID: 11
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x54b4f8555d3c73ae1f41fb82a84d31d000b03d4a
+      --engine-signer 0x0d94066ddb6fc01e43dabee7d77db391c2898d2e
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -274,7 +274,7 @@ services:
         ID: 12
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x6a62ba8931c91e006e67ffb9fbbe7ab225aa2082
+      --engine-signer 0xe84122568180b9e03a58458645605468bdeb38e2
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -295,7 +295,7 @@ services:
         ID: 13
     command:
       --config parity/config/authority.toml
-      --engine-signer 0xcaa052ad956f5fd001ce020f6ff9114d3b663ba1
+      --engine-signer 0xda78426475c34d13e08ea7cc9d9b730680f7b8c5
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -316,7 +316,7 @@ services:
         ID: 14
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x62691d96c1993cdd16343cc91f3403d257765a50
+      --engine-signer 0xb750832b5194a8b64319c113b84fcadd50615a2f
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -337,7 +337,7 @@ services:
         ID: 15
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x81b95a27affcb1d7d074c9746324241b4d000beb
+      --engine-signer 0xa8088958001da5686bec4ed0e763f55fe992b70c
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -358,7 +358,7 @@ services:
         ID: 16
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x4f48de323699fe6eaa208da9e843d21b352b1a3d
+      --engine-signer 0x7919b2b903d5ebe4174df570a045e71e143d2cca
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -379,7 +379,7 @@ services:
         ID: 17
     command:
       --config parity/config/authority.toml
-      --engine-signer 0xa8ccb87fab0bb4396f18ed6dd360834e0941084c
+      --engine-signer 0x2cb606bb907b04c41754b46709d35a527281c763
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -400,7 +400,7 @@ services:
         ID: 18
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x6d781742953d8f6a3b1cd0f0eaae6f0a3937fa21
+      --engine-signer 0x13b31f4019ef1fe3e8bf90cc950bac57fc26f7d8
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -421,7 +421,7 @@ services:
         ID: 19
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x8a4d3c100ccbc16d4db289bdd8ce8c67221f9752
+      --engine-signer 0xdd77f5a0b96f8776a615df67d70aa0786124d15e
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -442,7 +442,7 @@ services:
         ID: 20
     command:
       --config parity/config/authority.toml
-      --engine-signer 0x4772bc364922e9e5cb2fca89ee6058918d973936
+      --engine-signer 0xb342827241579221a354c1d507c01418dce5a5d4
       --no-persistent-txqueue
       --fast-unlock
     ports:
@@ -451,6 +451,426 @@ services:
     networks:
       app_net:
         ipv4_address: 172.16.0.30
+
+
+  authority21:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 21
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xb8cd43d730e820c518401c3c374f5d590af9bf28
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8755:8545
+      - 8756:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.31
+
+
+  authority22:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 22
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x15b8f0bbb173dcfc334293131e92bcb60f0454fc
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8765:8545
+      - 8766:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.32
+
+
+  authority23:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 23
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x1acde06039fa0f0e77a9008f0a2798a5b7ca7bc7
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8775:8545
+      - 8776:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.33
+
+
+  authority24:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 24
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xa863914ceb2b8a7f24fac3fd46ba549f7cd534b9
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8785:8545
+      - 8786:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.34
+
+
+  authority25:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 25
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xd09437587b77ff7c08b7107e4d34ea3ec29ecdb5
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8795:8545
+      - 8796:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.35
+
+
+  authority26:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 26
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x1ff108f15a646894820f763ddb500efe0187244b
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8805:8545
+      - 8806:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.36
+
+
+  authority27:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 27
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x28d63c4f56cd3973687085f91427f508484f344b
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8815:8545
+      - 8816:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.37
+
+
+  authority28:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 28
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xe7eaf9eda41fa4f2e8040420424d2263c8295b54
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8825:8545
+      - 8826:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.38
+
+
+  authority29:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 29
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xf90a87164f3627db3951abbfe57f041e90dd50a9
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8835:8545
+      - 8836:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.39
+
+
+  authority30:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 30
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xbdad727098ff60f5b64d07a6e8ad44064c396d41
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8845:8545
+      - 8846:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.40
+
+
+  authority31:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 31
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xb03d8c1e1f751f281c9a1258ba6297ae1214cf0c
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8855:8545
+      - 8856:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.41
+
+
+  authority32:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 32
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x446f7a0f2ad39f3ac03c7570f238366727abbd34
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8865:8545
+      - 8866:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.42
+
+
+  authority33:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 33
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x58fd0f65b97a4542f4f12cd19e018beac79b8b91
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8875:8545
+      - 8876:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.43
+
+
+  authority34:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 34
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xa7f4d3d63ccd9060c4880587931868ff199d7d84
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8885:8545
+      - 8886:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.44
+
+
+  authority35:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 35
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0xe753eddee58923df45eac3f09f3e38a4b955cce6
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8895:8545
+      - 8896:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.45
+
+
+  authority36:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 36
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x1f1b34e5202cd4b47c02116382f646ac2a158a0a
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8905:8545
+      - 8906:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.46
+
+
+  authority37:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 37
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x67eff83b082b424dd10052e6bf10ab2938cae00b
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8915:8545
+      - 8916:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.47
+
+
+  authority38:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 38
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x8e0214117a240b23ba94fbc3227dedc3009af0ba
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8925:8545
+      - 8926:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.48
+
+
+  authority39:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 39
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x9705781183fdc4d8e7d83eeb145848f7249ac2f1
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8935:8545
+      - 8936:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.49
+
+
+  authority40:
+    build:
+      context: .
+      dockerfile: docker_authority/Dockerfile
+      args:
+        PARITY_VERSION: ${PARITY_VERSION}
+        NETWORK_NAME: ${NETWORK_NAME}
+        ID: 40
+    command:
+      --config parity/config/authority.toml
+      --engine-signer 0x6da0b811d6fc4586baa28e914f31f6bf0ecbbf89
+      --no-persistent-txqueue
+      --fast-unlock
+    ports:
+      - 8945:8545
+      - 8946:8546
+    networks:
+      app_net:
+        ipv4_address: 172.16.0.50
 
 
   monitor:
